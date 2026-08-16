@@ -1,0 +1,8 @@
+node_modules/
+lib/
+umd/
+extension/dist/
+*.tgz
+*.log
+.DS_Store
+.vault/

@@ -1,0 +1,124 @@
+{
+  "name": "mobx-formkit-devtools",
+  "version": "1.0.0",
+  "description": "DevTools for MobX FormKit — in-app dock SDK and browser extension",
+  "license": "MIT",
+  "author": "Claudio Savino <claudio.savino@me.com> (https://twitter.com/foxhound87)",
+  "homepage": "https://github.com/foxhound87/mobx-formkit-devtools",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/foxhound87/mobx-formkit-devtools.git"
+  },
+  "main": "./lib/index.js",
+  "module": "./lib/esm/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/esm/index.js",
+      "require": "./lib/index.js"
+    },
+    "./react": {
+      "types": "./lib/react/index.d.ts",
+      "import": "./lib/esm/react/index.js",
+      "require": "./lib/react/index.js"
+    },
+    "./core": {
+      "types": "./lib/core/index.d.ts",
+      "import": "./lib/esm/core/index.js",
+      "require": "./lib/core/index.js"
+    },
+    "./chrome": {
+      "types": "./lib/chrome/index.d.ts",
+      "import": "./lib/esm/chrome/index.js",
+      "require": "./lib/chrome/index.js"
+    },
+    "./firefox": {
+      "types": "./lib/firefox/index.d.ts",
+      "import": "./lib/esm/firefox/index.js",
+      "require": "./lib/firefox/index.js"
+    },
+    "./edge": {
+      "types": "./lib/edge/index.d.ts",
+      "import": "./lib/esm/edge/index.js",
+      "require": "./lib/edge/index.js"
+    }
+  },
+  "files": [
+    "lib",
+    "extension"
+  ],
+  "typesVersions": {
+    "*": {
+      "react": [
+        "./lib/react/index.d.ts"
+      ],
+      "core": [
+        "./lib/core/index.d.ts"
+      ],
+      "chrome": [
+        "./lib/chrome/index.d.ts"
+      ],
+      "firefox": [
+        "./lib/firefox/index.d.ts"
+      ],
+      "edge": [
+        "./lib/edge/index.d.ts"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "npm run build:cjs && npm run build:esm && npm run build:umd",
+    "build:cjs": "tsc -p tsconfig.lib.json",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:umd": "webpack --config webpack.config.js",
+    "build:umd:min": "MINIFY=YES webpack --config webpack.config.js",
+    "build:ext": "node scripts/build-extensions.js",
+    "dev:chrome": "node scripts/install-extension.js chrome",
+    "dev:firefox": "node scripts/install-extension.js firefox",
+    "dev:edge": "node scripts/install-extension.js edge",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "keywords": [
+    "mobx",
+    "formkit",
+    "react",
+    "form",
+    "devtools",
+    "extension"
+  ],
+  "dependencies": {
+    "@emotion/css": "^11.10.6",
+    "classnames": "^2.3.2",
+    "lodash": "^4.17.21",
+    "lucide-react": "^1.17.0",
+    "react-dock": "0.2.4",
+    "react-json-tree": "0.11.0"
+  },
+  "peerDependencies": {
+    "mobx": "^6.12.0 || ^7.0.0",
+    "mobx-formkit": "*",
+    "mobx-react": "*",
+    "mobx-react-form": "*",
+    "react": "*",
+    "react-dom": "*"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "css-loader": "^6.7.3",
+    "mobx": "^6.12.0 || ^7.0.0",
+    "mobx-react": "^9.0.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "style-loader": "^3.3.1",
+    "terser-webpack-plugin": "^5.3.6",
+    "ts-loader": "^9.4.2",
+    "typescript": "^4.9.5",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  }
+}
